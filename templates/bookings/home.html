@@ -1,51 +1,85 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Who Cares Photography</title>
+    <meta charset="UTF-8">
+    <title>WHO CARES STUDIO</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
-    <h1>Who Cares Photography</h1>
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">WHO CARES STUDIO</div>
 
-    <p>Capturing your best moments with creativity and passion.</p>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/booking/">Booking</a></li>
+    </ul>
+</nav>
 
-    <h2>Welcome!</h2>
+<!-- ================= HERO SECTION (FIXED PROPERLY) ================= -->
+<div class="hero" style="
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('{% static 'images/hero.jpg' %}');
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+">
 
-    <p>Book your photography session today.</p>
+    <div>
+        <h1>Capture Your Best Moments</h1>
+        <p>Professional Photography Studio in Lagos</p>
+        <a href="/booking/" class="btn">Book Now</a>
+    </div>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+<h2>ABOUT US</h2>
+
+<div style="text-align:center; max-width:800px; margin:auto; padding:20px; color:#ccc;">
+    <p>
+        We are a professional photography studio specializing in weddings, portraits, and events.
+        We capture your memories with creativity and passion.
+    </p>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<h2>OUR SERVICES</h2>
+
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:15px; padding:30px;">
+
+    <div style="background:#1a1a1a; padding:20px; border-radius:10px; text-align:center;">
+        <h3 style="color:gold;">Weddings</h3>
+        <p>Beautiful wedding photography coverage.</p>
+    </div>
+
+    <div style="background:#1a1a1a; padding:20px; border-radius:10px; text-align:center;">
+        <h3 style="color:gold;">Portraits</h3>
+        <p>Studio and outdoor portrait sessions.</p>
+    </div>
+
+    <div style="background:#1a1a1a; padding:20px; border-radius:10px; text-align:center;">
+        <h3 style="color:gold;">Events</h3>
+        <p>Corporate and private event coverage.</p>
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>©️ 2026 WHO CARES STUDIO | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
-
-
-
-<!-- Gallery Section -->
-<section id="gallery" class="gallery">
-    <h2>Our Gallery</h2>
-    <p>Take a look at some of our recent photography work.</p>
-
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="/static/images/gallery1.jpg" alt="Wedding Photography">
-        </div>
-
-        <div class="gallery-item">
-            <img src="/static/images/gallery2.jpg" alt="Portrait Photography">
-        </div>
-
-        <div class="gallery-item">
-            <img src="/static/images/gallery3.jpg" alt="Outdoor Photography">
-        </div>
-
-        <div class="gallery-item">
-            <img src="/static/images/gallery4.jpg" alt="Studio Photography">
-        </div>
-
-        <div class="gallery-item">
-            <img src="/static/images/gallery5.jpg" alt="Birthday Photography">
-        </div>
-
-        <div class="gallery-item">
-            <img src="/static/images/gallery6.jpg" alt="Event Photography">
-        </div>
-    </div>
-</section>

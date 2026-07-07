@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking - WHO CARES STUDIO</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">WHO CARES STUDIO</div>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/booking/">Booking</a></li>
+    </ul>
+</nav>
+
+<!-- ================= HEADER ================= -->
+<div class="hero" style="height:40vh;">
+    <div>
+        <h1>Book Your Session</h1>
+        <p>Capture your best moments with us</p>
+    </div>
+</div>
+
+<!-- ================= FORM TITLE ================= -->
+<h2>BOOKING FORM</h2>
+
+<!-- ================= BOOKING FORM ================= -->
+<div style="
+    max-width:600px;
+    margin:auto;
+    padding:30px;
+    background:#1a1a1a;
+    border-radius:10px;
+">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label style="color:gold;">Full Name</label><br>
+        {{ form.name }}<br><br>
+
+        <label style="color:gold;">Email Address</label><br>
+        {{ form.email }}<br><br>
+
+        <label style="color:gold;">Phone Number</label><br>
+        {{ form.phone }}<br><br>
+
+        <label style="color:gold;">Select Service</label><br>
+        {{ form.service }}<br><br>
+
+        <label style="color:gold;">Preferred Date</label><br>
+        {{ form.date }}<br><br>
+
+        <label style="color:gold;">Message (Optional)</label><br>
+        {{ form.message }}<br><br>
+
+        <button type="submit"
+            style="
+                width:100%;
+                padding:12px;
+                background:gold;
+                border:none;
+                font-weight:bold;
+                cursor:pointer;
+            ">
+            Submit Booking
+        </button>
+
+    </form>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>©️ 2026 WHO CARES STUDIO | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

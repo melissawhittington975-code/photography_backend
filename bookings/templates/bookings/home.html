@@ -1,111 +1,28 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Who Cares Photography</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Studio</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-    <div class="logo">
-        Who Cares Photography
-    </div>
-
+    <div class="logo">WHO CARES STUDIO</div>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#booking">Bookings</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/booking/">Booking</a></li>
     </ul>
 </nav>
 
-<!-- HERO / HOME -->
-<section id="home" class="hero">
-    <h1>Capture Every Beautiful Moment</h1>
-    <p>Professional Wedding • Portrait • Birthday • Event Photography</p>
-    <a href="#booking" class="btn">Book Your Session</a>
-</section>
-
-<!-- PACKAGES -->
-<section id="packages" class="services">
-    <h2>Our Photography Services</h2>
-
-    <div class="service-container">
-        <div class="card">
-            <h3>💍 Wedding Photography</h3>
-            <p>Beautiful storytelling of your special day.</p>
-        </div>
-
-        <div class="card">
-            <h3>📸 Portrait Sessions</h3>
-            <p>Indoor and outdoor professional portraits.</p>
-        </div>
-
-        <div class="card">
-            <h3>🎉 Birthday & Events</h3>
-            <p>Capture unforgettable celebrations.</p>
-        </div>
+<div class="hero">
+    <div>
+        <h1>Capture Your Best Moments</h1>
+        <a href="/booking/" class="btn">Book Now</a>
     </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="gallery">
-    <h2>Our Gallery</h2>
-
-    <div class="gallery-grid">
-        <img src="{% static 'images/gallery1.jpg' %}" alt="">
-        <img src="{% static 'images/gallery2.jpg' %}" alt="">
-        <img src="{% static 'images/gallery3.jpg' %}" alt="">
-        <img src="{% static 'images/gallery4.jpg' %}" alt="">
-        <img src="{% static 'images/gallery5.jpg' %}" alt="">
-        <img src="{% static 'images/gallery6.jpg' %}" alt="">
-    </div>
-</section>
-
-<!-- BOOKING -->
-<section id="booking" class="booking">
-    <h2>Book Your Photography Session</h2>
-
-    {% if messages %}
-        {% for message in messages %}
-            <p style="color: green; font-weight: bold; text-align: center;">
-                {{ message }}
-            </p>
-        {% endfor %}
-    {% endif %}
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit" class="btn">Book Now</button>
-    </form>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Email: bmdss6292@gmail.com</p>
-    <p>Phone: +234 7010942218</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <h2>Who Cares Photography</h2>
-    <p>Capturing Moments • Creating Memories • Preserving Love</p>
-    <p>©️ 2026 Who Cares Photography</p>
-</footer>
+</div>
 
 </body>
 </html>
