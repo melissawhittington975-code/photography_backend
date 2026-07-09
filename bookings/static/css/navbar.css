@@ -1,0 +1,74 @@
+/* ===========================
+   Luxury Navigation Bar
+=========================== */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(212,175,55,.20);
+    transition:.35s;
+}
+.logo a{
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+.logo .gold{
+    color:#D4AF37;
+}
+.logo .white{
+    color:white;
+}
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+    margin:0;
+    padding:0;
+}
+.nav-links li{
+    list-style:none;
+}
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    font-weight:500;
+    transition:.35s;
+    position:relative;
+}
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:#D4AF37;
+    transition:.35s;
+}
+.nav-links a:hover{
+    color:#D4AF37;
+}
+.nav-links a:hover::after{
+    width:100%;
+}
+@media(max-width:900px){
+.navbar{
+flex-direction:column;
+padding:20px;
+}
+.nav-links{
+margin-top:20px;
+flex-wrap:wrap;
+justify-content:center;
+gap:18px;
+}
+}

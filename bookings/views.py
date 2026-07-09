@@ -1,27 +1,57 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import BookingForm
-from .models import Booking
+from .models import Gallery
+
 
 def home(request):
-    return render(request, 'bookings/home.html')
+    form = BookingForm()
+
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            form = BookingForm()
+
+    gallery_images = Gallery.objects.all()[:6]
+
+    return render(request, "bookings/home.html", {
+        "form": form,
+        "gallery_images": gallery_images,
+    })
+
+
+def about(request):
+    return render(request, "bookings/about.html")
+
 
 def gallery(request):
-    return render(request, 'bookings/gallery.html')
+    gallery_images = Gallery.objects.all()
+
+    return render(request, "bookings/gallery.html", {
+        "gallery_images": gallery_images,
+    })
+
 
 def booking(request):
-    if request.method == 'POST':
+
+    form = BookingForm()
+
+    if request.method == "POST":
         form = BookingForm(request.POST)
+
         if form.is_valid():
-            booking = form.save()
+            form.save()
+            form = BookingForm()
 
-            # WhatsApp redirect (change number)
-            phone = "2348167211192"
-            message = f"New Booking: {booking.name}, {booking.service} on {booking.date}"
-            whatsapp_url = f"https://wa.me/{phone}?text={message}"
+    return render(request, "bookings/booking.html", {
+        "form": form,
+    })
 
-            return redirect(whatsapp_url)
 
-    else:
-        form = BookingForm()
+def contact(request):
+    return render(request, "bookings/contact.html")
 
-    return render(request, 'bookings/booking.html', {'form': form})
+
+def services(request):
+    return render(request, "bookings/services.html")

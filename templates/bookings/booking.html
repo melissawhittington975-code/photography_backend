@@ -1,89 +1,539 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Booking - WHO CARES STUDIO</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Your Session | Who Cares Photography</title>
+
+
+<style>
+
+body {
+
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #050505;
+    color: white;
+
+}
+
+
+.booking-header {
+
+    text-align: center;
+    padding: 60px 20px 30px;
+
+}
+
+
+.booking-header h1 {
+
+    color: #D4AF37;
+    font-size: 42px;
+    margin-bottom: 15px;
+
+}
+
+
+.booking-header p {
+
+    color: #ddd;
+    font-size: 18px;
+
+}
+
+
+.booking-box {
+
+    max-width: 950px;
+    margin: 20px auto 60px;
+    background: #111;
+    padding: 45px;
+    border-radius: 20px;
+
+    box-shadow:
+    0 0 30px rgba(212,175,55,0.25);
+
+}
+
+
+.section-title {
+
+    color: #D4AF37;
+    font-size: 24px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+}
+
+
+label {
+
+    display:block;
+    color:#D4AF37;
+    margin-bottom:8px;
+    font-weight:600;
+
+}
+
+
+input,
+select,
+textarea {
+
+    width:100%;
+    padding:15px;
+
+    margin-bottom:20px;
+
+    background:#080808;
+
+    color:white;
+
+    border:1px solid #444;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+
+}
+
+
+textarea {
+
+    height:130px;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline:none;
+    border-color:#D4AF37;
+
+}
+
+
+/* Package Cards */
+
+
+.packages {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+
+.package-card {
+
+    background:#080808;
+
+    border:1px solid #444;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.package-card:hover {
+
+    border-color:#D4AF37;
+
+    transform:translateY(-5px);
+
+}
+
+
+.package-card h3 {
+
+    color:#D4AF37;
+
+}
+
+
+.package-card p {
+
+    color:#ddd;
+
+}
+
+
+.package-card.active {
+
+    border:2px solid #D4AF37;
+
+    box-shadow:
+    0 0 20px rgba(212,175,55,.4);
+
+}
+
+
+
+/* Button */
+
+
+button {
+
+    width:100%;
+
+    padding:18px;
+
+    background:#D4AF37;
+
+    color:black;
+
+    border:none;
+
+    border-radius:40px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+button:hover {
+
+    opacity:.85;
+
+    transform:scale(1.02);
+
+}
+
+
+
+@media(max-width:600px){
+
+.booking-box {
+
+    margin:20px;
+
+    padding:25px;
+
+}
+
+
+.booking-header h1 {
+
+    font-size:30px;
+
+}
+
+}
+
+
+</style>
+
+
 </head>
+
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
-<nav>
-    <div class="logo">WHO CARES STUDIO</div>
 
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/gallery/">Gallery</a></li>
-        <li><a href="/booking/">Booking</a></li>
-    </ul>
-</nav>
+{% include 'bookings/includes/navbar.html' %}
 
-<!-- ================= HEADER ================= -->
-<div class="hero" style="height:40vh;">
-    <div>
-        <h1>Book Your Session</h1>
-        <p>Capture your best moments with us</p>
-    </div>
-</div>
 
-<!-- ================= FORM TITLE ================= -->
-<h2>BOOKING FORM</h2>
 
-<!-- ================= BOOKING FORM ================= -->
-<div style="
-    max-width:600px;
-    margin:auto;
-    padding:30px;
-    background:#1a1a1a;
-    border-radius:10px;
-">
+<div class="booking-header">
 
-    <form method="POST">
-        {% csrf_token %}
 
-        <label style="color:gold;">Full Name</label><br>
-        {{ form.name }}<br><br>
+<h1>
+Reserve Your Photography Experience
+</h1>
 
-        <label style="color:gold;">Email Address</label><br>
-        {{ form.email }}<br><br>
 
-        <label style="color:gold;">Phone Number</label><br>
-        {{ form.phone }}<br><br>
+<p>
+Your special moments deserve timeless images.
+Let's create memories that last forever.
+</p>
 
-        <label style="color:gold;">Select Service</label><br>
-        {{ form.service }}<br><br>
-
-        <label style="color:gold;">Preferred Date</label><br>
-        {{ form.date }}<br><br>
-
-        <label style="color:gold;">Message (Optional)</label><br>
-        {{ form.message }}<br><br>
-
-        <button type="submit"
-            style="
-                width:100%;
-                padding:12px;
-                background:gold;
-                border:none;
-                font-weight:bold;
-                cursor:pointer;
-            ">
-            Submit Booking
-        </button>
-
-    </form>
 
 </div>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-    <p>©️ 2026 WHO CARES STUDIO | All Rights Reserved</p>
-</footer>
+
+
+
+<div class="booking-box">
+
+
+<form method="POST">
+
+
+{% csrf_token %}
+
+
+
+<div class="section-title">
+Client Information
+</div>
+
+
+<label>
+Full Name
+</label>
+
+{{ form.full_name }}
+
+
+
+<label>
+Email Address
+</label>
+
+{{ form.email }}
+
+
+
+<label>
+Phone Number
+</label>
+
+{{ form.phone }}
+
+
+
+
+
+<div class="section-title">
+Choose Your Photography Experience
+</div>
+
+
+
+<div class="packages">
+
+
+<div class="package-card" onclick="selectPackage('Wedding', this)">
+
+<h3>💍 Wedding Photography</h3>
+
+<p>
+Elegant storytelling for your unforgettable day.
+</p>
+
+</div>
+
+
+
+<div class="package-card" onclick="selectPackage('Portrait', this)">
+
+<h3>📸 Portrait Session</h3>
+
+<p>
+Professional portraits that capture your personality.
+</p>
+
+</div>
+
+
+
+<div class="package-card" onclick="selectPackage('Birthday', this)">
+
+<h3>🎉 Events & Celebrations</h3>
+
+<p>
+Preserve every special moment.
+</p>
+
+</div>
+
+
+
+<div class="package-card" onclick="selectPackage('Graduation', this)">
+
+<h3>🎓 Graduation Photography</h3>
+
+<p>
+Celebrate your achievements.
+</p>
+
+</div>
+
+
+
+<div class="package-card" onclick="selectPackage('Family', this)">
+
+<h3>👨‍👩‍👧 Family Session</h3>
+
+<p>
+Memories your family will treasure.
+</p>
+
+</div>
+
+
+
+<div class="package-card" onclick="selectPackage('Corporate', this)">
+
+<h3>💼 Corporate Photography</h3>
+
+<p>
+Professional images for your brand.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div style="display:none;">
+
+{{ form.package }}
+
+</div>
+
+
+
+
+<div class="section-title">
+Session Details
+</div>
+
+
+<label>
+Preferred Date
+</label>
+
+{{ form.event_date }}
+
+
+
+<label>
+Preferred Time
+</label>
+
+{{ form.event_time }}
+
+
+
+
+
+<div class="section-title">
+Event Information
+</div>
+
+
+<label>
+Event Location
+</label>
+
+{{ form.location }}
+
+
+
+<label>
+Number of Guests
+</label>
+
+{{ form.guests }}
+
+
+
+<label>
+Budget (Optional)
+</label>
+
+{{ form.budget }}
+
+
+
+
+
+<div class="section-title">
+Additional Information
+</div>
+
+
+<label>
+Tell us about your event
+</label>
+
+{{ form.message }}
+
+
+
+
+<button type="submit">
+BOOK MY SESSION
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+<script>
+
+
+function selectPackage(value, card){
+
+
+let select =
+document.querySelector(
+"select[name='package']"
+);
+
+
+select.value = value;
+
+
+
+let cards =
+document.querySelectorAll(
+".package-card"
+);
+
+
+cards.forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+
+
+card.classList.add("active");
+
+
+}
+
+
+</script>
+
+
 
 </body>
+
 </html>

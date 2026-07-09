@@ -1,0 +1,174 @@
+{% extends "bookings/base.html" %}
+{% load static %}
+
+{% block title %}
+Services & Packages | Who Cares Photography
+{% endblock %}
+
+{% block content %}
+
+<section class="services-page">
+
+    <div class="services-header">
+
+        <span class="hero-subtitle">
+            Our Services
+        </span>
+
+        <h1>Photography Packages</h1>
+
+        <p class="services-intro">
+            Choose the perfect photography experience for your special
+            moments. Whether you're celebrating a wedding, graduation,
+            birthday, engagement, family gathering, or corporate event,
+            we're here to capture memories that last a lifetime.
+        </p>
+
+    </div>
+
+    <div class="package-container">
+
+        <div class="package-card">
+
+            <h2>Wedding Photography</h2>
+
+            <h3>Starting From $1,500</h3>
+
+            <ul>
+                <li>Full wedding day coverage</li>
+                <li>Professional photo editing</li>
+                <li>High-resolution digital gallery</li>
+                <li>Online gallery delivery</li>
+                <li>Beautifully captured memories</li>
+            </ul>
+
+            <a href="{% url 'booking' %}" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="package-card">
+
+            <h2>Portrait Photography</h2>
+
+            <h3>Starting From $300</h3>
+
+            <ul>
+                <li>Studio or outdoor session</li>
+                <li>Professional retouching</li>
+                <li>Multiple outfit changes</li>
+                <li>Premium edited images</li>
+                <li>High-resolution downloads</li>
+            </ul>
+
+            <a href="{% url 'booking' %}" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="package-card">
+
+            <h2>Event Photography</h2>
+
+            <h3>Starting From $700</h3>
+
+            <ul>
+                <li>Birthday celebrations</li>
+                <li>Graduations</li>
+                <li>Church programs</li>
+                <li>Corporate events</li>
+                <li>Complete edited gallery</li>
+            </ul>
+
+            <a href="{% url 'booking' %}" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="package-card">
+
+            <h2>Couples & Engagement</h2>
+
+            <h3>Starting From $450</h3>
+
+            <ul>
+                <li>Romantic outdoor sessions</li>
+                <li>Creative posing guidance</li>
+                <li>Professional editing</li>
+                <li>High-resolution images</li>
+                <li>Online gallery delivery</li>
+            </ul>
+
+            <a href="{% url 'booking' %}" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="package-card">
+
+            <h2>Family Photography</h2>
+
+            <h3>Starting From $400</h3>
+
+            <ul>
+                <li>Indoor or outdoor sessions</li>
+                <li>Natural family portraits</li>
+                <li>Professional editing</li>
+                <li>Beautiful group photographs</li>
+                <li>Digital gallery included</li>
+            </ul>
+
+            <a href="{% url 'booking' %}" class="btn">
+                Book Now
+            </a>
+
+        </div>
+
+        <div class="package-card">
+
+            <h2>Corporate Photography</h2>
+
+            <h3>Custom Quote</h3>
+
+            <ul>
+                <li>Corporate headshots</li>
+                <li>Business branding</li>
+                <li>Conferences & seminars</li>
+                <li>Company events</li>
+                <li>Commercial photography</li>
+            </ul>
+
+            <a href="{% url 'booking' %}" class="btn">
+                Request a Quote
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta-section">
+
+    <div class="about-container">
+
+        <h2>Ready to Capture Your Special Moments?</h2>
+
+        <p>
+            Let Who Cares Photography turn your memories into timeless
+            photographs you'll cherish forever.
+        </p>
+
+        <a href="{% url 'booking' %}" class="btn">
+            Book Your Session
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

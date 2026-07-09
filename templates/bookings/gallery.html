@@ -1,32 +1,30 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gallery</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-
-<nav>
-    <div class="logo">WHO CARES STUDIO</div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/gallery/">Gallery</a></li>
-        <li><a href="/booking/">Booking</a></li>
-    </ul>
-</nav>
-
-<h2>Gallery</h2>
-
-<div class="gallery">
-    <img src="{% static 'images/wedding1.jpg' %}">
-    <img src="{% static 'images/wedding2.jpg' %}">
-    <img src="{% static 'images/portrait1.jpg' %}">
-    <img src="{% static 'images/portrait2.jpg' %}">
-    <img src="{% static 'images/event1.jpg' %}">
-    <img src="{% static 'images/event2.jpg' %}">
-</div>
-
-</body>
-</html>
+{% extends "bookings/base.html" %}
+{% block title %}
+Gallery | Who Cares Photography
+{% endblock %}
+{% block content %}
+<section class="gallery-container">
+    <h1>
+        Our Photography Gallery
+    </h1>
+    <p>
+        A collection of beautiful memories captured by Who Cares Photography.
+    </p>
+    <div class="gallery-grid">
+        {% if gallery_images %}
+            {% for photo in gallery_images %}
+            <div class="gallery-card">
+                <img 
+                    src="{{ photo.image.url }}" 
+                    alt="{{ photo.title }}"
+                >
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>
+                No photos uploaded yet.
+            </p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

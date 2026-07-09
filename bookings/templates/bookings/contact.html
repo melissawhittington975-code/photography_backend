@@ -1,0 +1,97 @@
+{% extends "bookings/base.html" %}
+{% load static %}
+
+{% block title %}
+Contact | Who Cares Photography
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-page">
+
+    <div class="contact-container">
+
+        <span class="hero-subtitle">
+            Get In Touch
+        </span>
+
+        <h1>Contact Who Cares Photography</h1>
+
+        <p class="contact-intro">
+            We'd love to hear from you. Whether you're planning a wedding,
+            portrait session, graduation, birthday, family gathering, or
+            corporate event, we're here to help capture your most memorable
+            moments.
+        </p>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <h2>Contact Information</h2>
+
+                <p>
+                    <strong>Phone</strong><br>
+                    +1 (406) 969-7945
+                </p>
+
+                <p>
+                    <strong>Email</strong><br>
+                    bmdss6292@gmail.com
+                </p>
+
+                <p>
+                    <strong>Business Hours</strong><br>
+                    Monday – Saturday<br>
+                    9:00 AM – 6:00 PM
+                </p>
+
+                <p>
+                    <strong>Services</strong><br>
+                    Weddings • Portraits • Events • Graduation • Family • Corporate
+                </p>
+
+            </div>
+
+            <div class="contact-card">
+
+                <h2>Book a Session</h2>
+
+                <p>
+                    Ready to create beautiful memories? Click the button below
+                    to book your photography session.
+                </p>
+
+                <a href="{% url 'booking' %}" class="btn">
+                    Book Your Session
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta-section">
+
+    <div class="about-container">
+
+        <h2>Let's Create Timeless Memories Together</h2>
+
+        <p>
+            Thank you for considering Who Cares Photography.
+            We look forward to capturing your story with creativity,
+            professionalism, and passion.
+        </p>
+
+        <a href="{% url 'booking' %}" class="btn">
+            Schedule Your Session
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

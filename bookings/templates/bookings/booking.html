@@ -1,0 +1,108 @@
+{% extends "bookings/base.html" %}
+{% load static %}
+
+{% block title %}
+Book Your Session | Who Cares Photography
+{% endblock %}
+
+{% block content %}
+
+<section class="booking-page">
+
+    <div class="booking-container">
+
+        <span class="hero-subtitle">
+            Book Your Session
+        </span>
+
+        <h1>Let's Capture Your Special Moments</h1>
+
+        <p class="booking-intro">
+            Ready to create unforgettable memories? Complete the booking
+            form below and we'll get in touch to confirm your session and
+            discuss all the details of your event.
+        </p>
+
+        <div class="booking-form-container">
+
+            <form method="POST" class="booking-form">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn">
+                    Submit Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="booking-info">
+
+    <div class="about-container">
+
+        <h2>Why Book With Us?</h2>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+                <h3>Professional Photography</h3>
+
+                <p>
+                    High-quality photography using professional equipment
+                    and creative techniques.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Fast Delivery</h3>
+
+                <p>
+                    Your beautifully edited photographs will be delivered
+                    as quickly as possible without compromising quality.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Personalized Experience</h3>
+
+                <p>
+                    Every photography session is tailored to your vision,
+                    style, and special occasion.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta-section">
+
+    <div class="about-container">
+
+        <h2>Have Questions Before Booking?</h2>
+
+        <p>
+            We'd love to hear from you. Contact us and we'll gladly help
+            you choose the perfect photography package.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
