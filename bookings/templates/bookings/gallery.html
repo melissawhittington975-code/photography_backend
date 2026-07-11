@@ -1,60 +1,82 @@
 {% extends "bookings/base.html" %}
 {% load static %}
+
 {% block title %}
 Gallery | Who Cares Photography
 {% endblock %}
+
 {% block content %}
+
 <section class="gallery-page">
+
     <div class="section-header">
+
         <span class="hero-subtitle">
             Our Portfolio
         </span>
-        <h1>
-            Photography Gallery
-        </h1>
+
+        <h1>Photography Gallery</h1>
+
         <p>
-            Explore a collection of our favorite moments, professionally
-            captured with creativity, passion, and attention to detail.
+            Every photograph tells a story. Explore our collection of weddings,
+            portraits, graduations, family moments, birthdays, and corporate events.
         </p>
+
     </div>
+
     <div class="gallery-container">
-        <h2 style="color:red;">
-            Images found: {{ gallery_images|length }}
-        </h2>
+
         {% if gallery_images %}
+
             {% for photo in gallery_images %}
+
             <div class="gallery-card">
-                <img 
-                    src="{{ photo.image.url }}" 
-                    alt="{{ photo.title }}"
-                    style="
-                        width:300px;
-                        height:300px;
-                        object-fit:cover;
-                        display:block;
-                    "
-                >
-                <div class="gallery-info">
-                    <h3>
-                        {{ photo.title }}
-                    </h3>
-                    <p>
-                        {{ photo.category }}
-                    </p>
-                </div>
+
+                <a href="{% url 'gallery_detail' photo.id %}" class="gallery-link">
+
+                    <div class="gallery-image">
+
+                        <img
+                            src="{{ photo.image.url }}"
+                            alt="{{ photo.title }}"
+                        >
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <h3>{{ photo.title }}</h3>
+
+                        <p>{{ photo.category }}</p>
+
+                        <span class="view-photo">
+                            View Photo →
+                        </span>
+
+                    </div>
+
+                </a>
+
             </div>
+
             {% endfor %}
+
         {% else %}
+
             <div class="about-container">
-                <h2>
-                    No Photos Yet
-                </h2>
+
+                <h2>No Photos Available</h2>
+
                 <p>
-                    Upload your first photographs from the Django Admin
-                    and they will automatically appear here.
+                    Upload photographs from the Django Admin panel and they will automatically appear here.
                 </p>
+
             </div>
+
         {% endif %}
+
     </div>
+
 </section>
+
 {% endblock %}

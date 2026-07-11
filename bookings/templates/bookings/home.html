@@ -7,6 +7,7 @@ Home | Who Cares Photography
 
 {% block content %}
 
+<!-- Hero Section -->
 <section class="hero">
 
     <div class="hero-overlay"></div>
@@ -44,6 +45,36 @@ Home | Who Cares Photography
 
 </section>
 
+<!-- Statistics Section -->
+<section class="stats-section">
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <h2>{{ total_bookings }}</h2>
+            <p>Total Bookings</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>{{ total_photos }}</h2>
+            <p>Gallery Photos</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>100%</h2>
+            <p>Customer Satisfaction</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>24/7</h2>
+            <p>Customer Support</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Services Section -->
 <section class="services-page">
 
     <h1>Our Services</h1>
@@ -75,39 +106,130 @@ Home | Who Cares Photography
 
 </section>
 
+<!-- Featured Gallery -->
 <section class="gallery-page">
 
-    <h1>Featured Gallery</h1>
+    <div class="section-header">
 
-    <div class="gallery-container">
+        <span class="hero-subtitle">
+            Featured Work
+        </span>
 
-        {% for photo in gallery_images %}
+        <h1>Featured Gallery</h1>
 
-        <div class="gallery-card">
-
-            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
-
-            <div class="gallery-info">
-
-                <h3>{{ photo.title }}</h3>
-
-                <p>{{ photo.category }}</p>
-
-            </div>
-
-        </div>
-
-        {% empty %}
-
-        <p>No gallery images uploaded yet.</p>
-
-        {% endfor %}
+        <p>
+            A glimpse into some of our recent photography sessions.
+        </p>
 
     </div>
 
-    <a href="{% url 'gallery' %}" class="btn">
-        View Complete Gallery
-    </a>
+    <div class="gallery-container">
+
+        {% if gallery_images %}
+
+            {% for photo in gallery_images %}
+
+            <div class="gallery-card">
+
+                <a href="{% url 'gallery_detail' photo.id %}" class="gallery-link">
+
+                    <div class="gallery-image">
+
+                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <h3>{{ photo.title }}</h3>
+
+                        <p>{{ photo.category }}</p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="about-container">
+
+                <h2>No Gallery Photos Yet</h2>
+
+                <p>
+                    Upload photographs from the Django Admin panel and they will automatically appear here.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+
+        <a href="{% url 'gallery' %}" class="btn">
+            View Complete Gallery
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Testimonials Section -->
+
+<section class="testimonials-section">
+
+    <div class="section-header">
+
+        <span class="hero-subtitle">
+            Client Reviews
+        </span>
+
+        <h1>What Our Clients Say</h1>
+
+        <p>
+            We take pride in creating unforgettable memories for every client.
+        </p>
+
+    </div>
+
+    <div class="testimonials-container">
+
+        <div class="testimonial-card">
+
+            <p>
+                "Who Cares Photography exceeded our expectations. Our wedding photos were beautifully captured and delivered on time."
+            </p>
+
+            <h3>— Sarah & David</h3>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "Professional service, friendly team, and amazing graduation portraits. I highly recommend them."
+            </p>
+
+            <h3>— Melissa Johnson</h3>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "From booking to delivery, everything was seamless. The photos turned out even better than we imagined."
+            </p>
+
+            <h3>— Michael Brown</h3>
+
+        </div>
+
+    </div>
 
 </section>
 

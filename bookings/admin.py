@@ -36,6 +36,41 @@ class BookingAdmin(admin.ModelAdmin):
 
     list_per_page = 15
 
+    date_hierarchy = "event_date"
+
+    readonly_fields = (
+        "created_at",
+    )
+
+    fieldsets = (
+        ("Customer Information", {
+            "fields": (
+                "full_name",
+                "email",
+                "phone",
+            )
+        }),
+        ("Booking Details", {
+            "fields": (
+                "package",
+                "event_date",
+                "event_time",
+                "location",
+                "message",
+            )
+        }),
+        ("Booking Status", {
+            "fields": (
+                "status",
+            )
+        }),
+        ("System Information", {
+            "fields": (
+                "created_at",
+            )
+        }),
+    )
+
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
@@ -60,3 +95,7 @@ class GalleryAdmin(admin.ModelAdmin):
     )
 
     list_per_page = 20
+
+    readonly_fields = (
+        "created_at",
+    )

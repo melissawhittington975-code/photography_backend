@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
         {% block title %}
         Who Cares Photography
         {% endblock %}
     </title>
-    <!-- Global Styles -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Page Styles -->
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/hero.css' %}">
     <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
@@ -19,13 +20,22 @@
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 </head>
+
 <body>
+
     {% include 'bookings/includes/navbar.html' %}
+
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
     {% include 'bookings/includes/footer.html' %}
-    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- JavaScript -->
+    {% comment %}
+    Add this back later if you create bookings/static/js/main.js
+    {% endcomment %}
+
 </body>
 </html>

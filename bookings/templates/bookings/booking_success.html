@@ -1,0 +1,36 @@
+{% extends "bookings/base.html" %}
+{% load static %}
+
+{% block title %}Booking Successful | Who Cares Photography{% endblock %}
+
+{% block content %}
+
+<section class="success-section">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Booking Submitted Successfully!</h1>
+
+        <p>
+            Thank you for choosing
+            <strong>Who Cares Photography</strong>.
+        </p>
+
+        <p>
+            Your booking request has been received successfully.
+            Our team will contact you shortly to confirm your booking.
+        </p>
+
+        <a href="{% url 'home' %}" class="success-btn">
+            Return to Home
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
