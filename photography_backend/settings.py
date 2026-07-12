@@ -3,11 +3,14 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(file).resolve().parent.parent
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "your-secret-key-here"
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 # Hosts allowed to access the website
 ALLOWED_HOSTS = [
@@ -15,6 +18,7 @@ ALLOWED_HOSTS = [
     "localhost",
     ".onrender.com",
 ]
+
 
 # Application definition
 
@@ -30,6 +34,7 @@ INSTALLED_APPS = [
     "bookings",
 ]
 
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -41,7 +46,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
 ROOT_URLCONF = "photography_backend.urls"
+
 
 TEMPLATES = [
     {
@@ -60,7 +67,9 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = "photography_backend.wsgi.application"
+
 
 # Database
 
@@ -70,6 +79,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
 
 # Password validation
 
@@ -88,6 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 
 LANGUAGE_CODE = "en-us"
@@ -97,6 +108,7 @@ TIME_ZONE = "Africa/Lagos"
 USE_I18N = True
 
 USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 
@@ -110,11 +122,13 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+
 # Media files (Uploaded Gallery Images)
 
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = BASE_DIR / "media"
+
 
 # Default primary key field type
 
